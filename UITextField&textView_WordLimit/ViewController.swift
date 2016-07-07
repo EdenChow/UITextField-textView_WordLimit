@@ -12,16 +12,83 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textFieldCountLabel: UILabel!
+    
+    @IBOutlet weak var textViewCountLabel: UILabel!
+    
+    @IBOutlet weak var textFieldMaxLength: UITextField!
+    
+    
+    @IBOutlet weak var textViewMaxLength: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.MaxCharLength = 10
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.textViewLengthNoti(_:)) , name: UITextViewTextLengthDidChangeNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.textFieldLengthNoti(_:)) , name: UITextFieldTextLengthDidChangeNotification, object: nil)
         
     }
     
-    func textFieldTextLengthDidChange(textFeild: UITextField, length: Int) {
-        print(length)
+    
+    func textViewLengthNoti(noti:NSNotification) {
+        
+        let textView  = noti.object as! UITextView //可通过textView对象判断当前的textView是哪一个
+        print("textView字数：\(textView.text!.length)")
+        textViewCountLabel.text = "textView字数：\(textView.text!.length)"
+        
+        
+        
     }
+    func textFieldLengthNoti(noti:NSNotification) {
+        
+        let textField  = noti.object as! UITextField //可通过textField对象判断当前的textField是哪一个
+        print("textField字数：\(textField.text!.length)")
+        textFieldCountLabel.text = "textField字数：\(textField.text!.length)"
+        
+    }
+   
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        if textField === self.textField {
+           
+            
+        }else{
+            
+            if textField === textFieldMaxLength {
+                
+                if textField.text?.length > 0{
+                    self.textField.MaxCharLength = Int(textField.text!)!
+                    
+                }else{
+                    self.textField.MaxCharLength = Int.max
+                }
+                
+            }else{
+                if textField.text?.length > 0{
+                    self.textView.MaxCharLength = Int(textField.text!)!
+                    
+                }else{
+                    self.textView.MaxCharLength = Int.max
+                }
+            }
+           
+
+            
+        }
+        
+        return true
+    }
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

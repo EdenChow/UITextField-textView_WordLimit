@@ -10,16 +10,7 @@ import UIKit
 import ObjectiveC
 private var textFieldTextLength = Int.max
 public let UITextFieldTextLengthDidChangeNotification: String = "UITextFieldTextLengthDidChangeNotification"
-extension UITextFieldDelegate{
-    
-    
-    func textFieldTextLengthDidChange(textFeild:UITextField,length:Int){
-        
-        
-        
-    }
-    
-}
+
 
 public extension UITextField{
     
@@ -86,12 +77,9 @@ public extension UITextField{
                 //长度正常，不处理
                 
 //                print(text.length)
-                
-                if self.delegate != nil {
-
-                    self.delegate!.textFieldTextLengthDidChange(textField, length: text.length)
-                    
-                }
+                   
+                //发送通知
+                NSNotificationCenter.defaultCenter().postNotificationName(UITextFieldTextLengthDidChangeNotification, object: self)
                 
                 
                 
@@ -115,11 +103,8 @@ public extension UITextField{
                         if  txt.length <= self.MaxCharLength{
                             //截取结束
                             textField.text = txt
-                            if self.delegate != nil {
-                                
-                                self.delegate!.textFieldTextLengthDidChange(textField, length: text.length)
-                                
-                            }
+                            //发送通知
+                            NSNotificationCenter.defaultCenter().postNotificationName(UITextFieldTextLengthDidChangeNotification, object: self)
                             
                             break
                         }
@@ -207,14 +192,10 @@ extension UITextView{
             if text.length <= self.MaxCharLength {
                 //长度正常，不处理
                 
-                print(text.length)
+//                print(text.length)
                 
-                if self.delegate != nil {
-                    
-                   
-                    
-                }
-                
+                //发送通知
+                NSNotificationCenter.defaultCenter().postNotificationName(UITextViewTextLengthDidChangeNotification, object: self)
                 
                 
             } else {
@@ -237,12 +218,8 @@ extension UITextView{
                         if  txt.length <= self.MaxCharLength{
                             //截取结束
                             self.text = txt
-                            if self.delegate != nil {
-                                
-                               
-                                
-                            }
-                            
+                            //发送通知
+                            NSNotificationCenter.defaultCenter().postNotificationName(UITextViewTextLengthDidChangeNotification, object: self)
                             break
                         }
                     }

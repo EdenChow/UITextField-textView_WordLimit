@@ -10,6 +10,8 @@
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textField.MaxCharLength = 10
+        self.textView.MaxCharLength = 50
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.textViewLengthNoti(_:)) , name: UITextViewTextLengthDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.textFieldLengthNoti(_:)) , name: UITextFieldTextLengthDidChangeNotification, object: nil)
     }

@@ -8,7 +8,8 @@
 
 import UIKit
 import ObjectiveC
-private var textLength = Int.max
+private var textFieldTextLength = Int.max
+public let UITextFieldTextLengthDidChangeNotification: String = "UITextFieldTextLengthDidChangeNotification"
 extension UITextFieldDelegate{
     
     
@@ -28,7 +29,7 @@ public extension UITextField{
         //通过运行时添加实例属性
         set{
             
-             objc_setAssociatedObject(self, &textLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+             objc_setAssociatedObject(self, &textFieldTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             
             
             self.addTarget(self, action: #selector(UITextField.textFieldEditingChange(_:)), forControlEvents: .EditingChanged)
@@ -37,7 +38,7 @@ public extension UITextField{
         }
         get{
             
-             return (objc_getAssociatedObject(self, &textLength) as? Int)!
+             return (objc_getAssociatedObject(self, &textFieldTextLength) as? Int)!
             
         }
         
@@ -138,10 +139,121 @@ public extension UITextField{
 
 
 
+private var textViewTextLength = Int.max
+public let UITextViewTextLengthDidChangeNotification: String = "UITextViewTextLengthDidChangeNotification"
 
 extension UITextView{
+
+    
+    /// 最大输入长度
+    public  var MaxCharLength:Int{
+        //通过运行时添加实例属性
+        set{
+            
+            objc_setAssociatedObject(self, &textViewTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            
+            
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UITextView.textViewEditingLengthChange), name: UITextViewTextDidChangeNotification, object:nil)
+            
+            
+        }
+        get{
+            
+            return (objc_getAssociatedObject(self, &textViewTextLength) as? Int)!
+            
+        }
+        
+    }
+    
+    /**
+     编辑中
+     
+     - parameter textView: 当前编辑的textView
+     */
+    func textViewEditingLengthChange() {
+        
+        if let _ = self.text {
+            if let positionRange = self.markedTextRange {
+                
+                if let _ = self.positionFromPosition(positionRange.start, offset: 0) {
+                    //正在使用拼音，不进行校验
+                    
+                    
+                    
+                } else {
+                    //不在使用拼音，进行校验
+                    
+                    self.checkLength()
+                }
+                
+            } else {
+                
+                //不在使用拼音，进行校验
+                self.checkLength()
+            }
+        }
+        
+    }
     
     
+    /**
+     长度检测
+     
+     - parameter textView: 当前检测的textView
+     */
+    func checkLength() {
+        if let text = self.text {
+            if text.length <= self.MaxCharLength {
+                //长度正常，不处理
+                
+                print(text.length)
+                
+                if self.delegate != nil {
+                    
+                   
+                    
+                }
+                
+                
+                
+            } else {
+                
+                //超出长度，开始处理
+                print("输入文字过长")
+                
+                let len = text.length
+                
+                if len > 0 {
+                    
+                    //进行截取
+                    
+                    for i in 1..<len {
+                        
+                        let j = len - i
+                        
+                        let txt = text.substringToIndex(text.startIndex.advancedBy(j))
+                        //                        print("txt : \(txt)")
+                        if  txt.length <= self.MaxCharLength{
+                            //截取结束
+                            self.text = txt
+                            if self.delegate != nil {
+                                
+                               
+                                
+                            }
+                            
+                            break
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        
+    }
     
     
     

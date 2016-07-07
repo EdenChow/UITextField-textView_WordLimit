@@ -15,8 +15,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.MaxCharLength = 10
-        textField.delegate = self
+        textView.MaxCharLength = 10
+        
     }
     
     func textFieldTextLengthDidChange(textFeild: UITextField, length: Int) {

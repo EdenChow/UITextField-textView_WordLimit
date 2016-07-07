@@ -60,9 +60,9 @@
 				2B6507821D2DFE7700274D90 /* AppDelegate.swift */,
 				2B6507841D2DFE7700274D90 /* ViewController.swift */,
 				2B6507991D2DFFCA00274D90 /* WordLimit.swift */,
+				2B65078B1D2DFE7700274D90 /* LaunchScreen.storyboard */,
 				2B6507861D2DFE7700274D90 /* Main.storyboard */,
 				2B6507891D2DFE7700274D90 /* Assets.xcassets */,
-				2B65078B1D2DFE7700274D90 /* LaunchScreen.storyboard */,
 				2B65078E1D2DFE7700274D90 /* Info.plist */,
 				2B6507941D2DFF6A00274D90 /* UITextField&textView_WordLimit-Bridging-Header.h */,
 			);
@@ -301,6 +301,7 @@
 				2B6507931D2DFE7700274D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

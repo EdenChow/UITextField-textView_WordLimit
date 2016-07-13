@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectiveC
-private var textFieldTextLength = Int.max
+private var textFieldTextLength = "textFieldTextLength"
 public let UITextFieldTextLengthDidChangeNotification: String = "UITextFieldTextLengthDidChangeNotification"
 
 
@@ -20,7 +20,7 @@ public extension UITextField{
         //通过运行时添加实例属性
         set{
             
-             objc_setAssociatedObject(self, &textFieldTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+             objc_setAssociatedObject(self, &textFieldTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
             
             
             self.addTarget(self, action: #selector(UITextField.textFieldEditingChange(_:)), forControlEvents: .EditingChanged)
@@ -124,7 +124,7 @@ public extension UITextField{
 
 
 
-private var textViewTextLength = Int.max
+private var textViewTextLength = "textViewTextLength"
 public let UITextViewTextLengthDidChangeNotification: String = "UITextViewTextLengthDidChangeNotification"
 
 extension UITextView{
@@ -135,7 +135,7 @@ extension UITextView{
         //通过运行时添加实例属性
         set{
             
-            objc_setAssociatedObject(self, &textViewTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &textViewTextLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
             
             
             

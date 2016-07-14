@@ -26,3 +26,5 @@
         print("textField字数：\(textField.text!.length)")
     }
 
+增加OC版本 使用方法一样 把WordLimit拖入项目中 导入WordLimit.h即可 具体看Demo
+=================

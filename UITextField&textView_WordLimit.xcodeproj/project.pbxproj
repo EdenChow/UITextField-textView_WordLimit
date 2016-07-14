@@ -18,8 +18,8 @@
 		2BA11E091D372C6000AAE7F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA11E081D372C6000AAE7F3 /* ViewController.m */; };
 		2BA11E0E1D372C6000AAE7F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BA11E0D1D372C6000AAE7F3 /* Assets.xcassets */; };
 		2BA11E111D372C6000AAE7F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA11E0F1D372C6000AAE7F3 /* LaunchScreen.storyboard */; };
-		2BA11E1A1D372E6400AAE7F3 /* WordLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA11E191D372E6400AAE7F3 /* WordLimit.m */; };
 		2BA11E1C1D37386000AAE7F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA11E1B1D37386000AAE7F3 /* Main.storyboard */; };
+		2BA11E201D373EAB00AAE7F3 /* WordLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA11E1F1D373EAB00AAE7F3 /* WordLimit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +41,9 @@
 		2BA11E0D1D372C6000AAE7F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BA11E101D372C6000AAE7F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BA11E121D372C6000AAE7F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BA11E181D372E6400AAE7F3 /* WordLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLimit.h; sourceTree = "<group>"; };
-		2BA11E191D372E6400AAE7F3 /* WordLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLimit.m; sourceTree = "<group>"; };
 		2BA11E1B1D37386000AAE7F3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2BA11E1E1D373EAB00AAE7F3 /* WordLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLimit.h; sourceTree = "<group>"; };
+		2BA11E1F1D373EAB00AAE7F3 /* WordLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLimit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,7 @@
 				2BA11E051D372C6000AAE7F3 /* AppDelegate.m */,
 				2BA11E071D372C6000AAE7F3 /* ViewController.h */,
 				2BA11E081D372C6000AAE7F3 /* ViewController.m */,
-				2BA11E181D372E6400AAE7F3 /* WordLimit.h */,
-				2BA11E191D372E6400AAE7F3 /* WordLimit.m */,
+				2BA11E1D1D373EAB00AAE7F3 /* WordLimit */,
 				2BA11E0D1D372C6000AAE7F3 /* Assets.xcassets */,
 				2BA11E0F1D372C6000AAE7F3 /* LaunchScreen.storyboard */,
 				2BA11E1B1D37386000AAE7F3 /* Main.storyboard */,
@@ -121,6 +120,15 @@
 				2BA11E021D372C6000AAE7F3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2BA11E1D1D373EAB00AAE7F3 /* WordLimit */ = {
+			isa = PBXGroup;
+			children = (
+				2BA11E1E1D373EAB00AAE7F3 /* WordLimit.h */,
+				2BA11E1F1D373EAB00AAE7F3 /* WordLimit.m */,
+			);
+			path = WordLimit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA11E091D372C6000AAE7F3 /* ViewController.m in Sources */,
-				2BA11E1A1D372E6400AAE7F3 /* WordLimit.m in Sources */,
+				2BA11E201D373EAB00AAE7F3 /* WordLimit.m in Sources */,
 				2BA11E061D372C6000AAE7F3 /* AppDelegate.m in Sources */,
 				2BA11E031D372C6000AAE7F3 /* main.m in Sources */,
 			);

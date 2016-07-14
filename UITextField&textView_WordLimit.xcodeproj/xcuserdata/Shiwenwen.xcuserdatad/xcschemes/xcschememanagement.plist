@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>OC_Version.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>UITextField&amp;textView_WordLimit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2B65077E1D2DFE7700274D90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BA11DFE1D372C6000AAE7F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

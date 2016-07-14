@@ -38,7 +38,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         let textView  = noti.object as! UITextView //可通过textView对象判断当前的textView是哪一个
         print("textView字数：\(textView.text!.length)")
-        textViewCountLabel.text = "textView字数：\(textView.text!.length)"
+        if textView === self.textView {
+           textViewCountLabel.text = "textView字数：\(textView.text!.length)"
+        }
+        
         
         
         
@@ -47,7 +50,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         let textField  = noti.object as! UITextField //可通过textField对象判断当前的textField是哪一个
         print("textField字数：\(textField.text!.length)")
-        textFieldCountLabel.text = "textField字数：\(textField.text!.length)"
+        if textField === self.textView{
+          textFieldCountLabel.text = "textField字数：\(textField.text!.length)"  
+        }
+        
         
     }
    
@@ -60,18 +66,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
             if textField === textFieldMaxLength {
                 
                 if textField.text?.length > 0{
-                    self.textField.MaxCharLength = Int(textField.text!)!
+                    self.textField.maxCharLength = Int(textField.text!)!
                     
                 }else{
-                    self.textField.MaxCharLength = Int.max
+                    self.textField.maxCharLength = Int.max
                 }
                 
             }else{
                 if textField.text?.length > 0{
-                    self.textView.MaxCharLength = Int(textField.text!)!
+                    self.textView.maxCharLength = Int(textField.text!)!
                     
                 }else{
-                    self.textView.MaxCharLength = Int.max
+                    self.textView.maxCharLength = Int.max
                 }
             }
            

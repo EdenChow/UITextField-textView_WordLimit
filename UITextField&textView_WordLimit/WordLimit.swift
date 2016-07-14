@@ -16,7 +16,7 @@ public extension UITextField{
     
     
     /// 最大输入长度
-  public  var MaxCharLength:Int{
+  public  var maxCharLength:Int{
         //通过运行时添加实例属性
         set{
             
@@ -73,7 +73,7 @@ public extension UITextField{
      */
     func checkLength(textField:UITextField) {
         if let text = textField.text {
-            if text.length <= self.MaxCharLength {
+            if text.length <= self.maxCharLength {
                 //长度正常，不处理
                 
 //                print(text.length)
@@ -100,7 +100,7 @@ public extension UITextField{
                         
                         let txt = text.substringToIndex(text.startIndex.advancedBy(j))
 //                        print("txt : \(txt)")
-                        if  txt.length <= self.MaxCharLength{
+                        if  txt.length <= self.maxCharLength{
                             //截取结束
                             textField.text = txt
                             //发送通知
@@ -131,7 +131,7 @@ extension UITextView{
 
     
     /// 最大输入长度
-    public  var MaxCharLength:Int{
+    public  var maxCharLength:Int{
         //通过运行时添加实例属性
         set{
             
@@ -189,7 +189,7 @@ extension UITextView{
      */
     func checkLength() {
         if let text = self.text {
-            if text.length <= self.MaxCharLength {
+            if text.length <= self.maxCharLength {
                 //长度正常，不处理
                 
 //                print(text.length)
@@ -215,7 +215,7 @@ extension UITextView{
                         
                         let txt = text.substringToIndex(text.startIndex.advancedBy(j))
                         //                        print("txt : \(txt)")
-                        if  txt.length <= self.MaxCharLength{
+                        if  txt.length <= self.maxCharLength{
                             //截取结束
                             self.text = txt
                             //发送通知
